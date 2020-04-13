@@ -115,8 +115,28 @@ $ docker exec eiprice-php /bin/bash -c "php artisan migrate"
 $ docker exec eiprice-php /bin/bash -c "php artisan db:seed"
 ```
 
-Finally you can just generate the composer optimized file:
+You also need to generate the composer optimized file:
 
 ```shell
 $ docker exec eiprice-php /bin/bash -c "composer dump-autoload -o"
+```
+
+Finally, you are almost there, you need to leave the container:
+
+```shell
+$ exit
+```
+
+And now you just need to set up your local host with the **IP** and **HOST** of the application
+
+You can run the command bellow:
+
+```shell
+$ sudo -- sh -c -e "echo '192.112.124.2\teiprice-coding-challenge.local' >> /etc/hosts";
+```
+
+Or you can just open you **/etc/hosts** manually and write the custom application host:
+
+```shell
+192.112.124.2	eiprice-coding-challenge.local;
 ```
